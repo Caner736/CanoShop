@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Robux Satışı</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    button { margin: 10px; padding: 15px 25px; font-size: 18px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Robux Satışı</h1>
+  <p>Almak istediğiniz miktarı seçin:</p>
+  
+  <button onclick="sendOrder(100)">100 Robux</button>
+  <button onclick="sendOrder(200)">200 Robux</button>
+  <button onclick="sendOrder(300)">300 Robux</button>
+  <button onclick="sendOrder(400)">400 Robux</button>
+  <button onclick="sendOrder(500)">500 Robux</button>
+  <button onclick="sendOrder(600)">600 Robux</button>
+  <button onclick="sendOrder(700)">700 Robux</button>
+  <button onclick="sendOrder(800)">800 Robux</button>
+  <button onclick="sendOrder(900)">900 Robux</button>
+  <button onclick="sendOrder(1000)">1000 Robux</button>
+
+  <script>
+    function sendOrder(amount) {
+      fetch("BURAYA_DISCORD_WEBHOOK_URL", {  // Buraya kendi Webhook URL'ni yapıştır
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content: `Bir kullanıcı ${amount} Robux almak istedi!` })
+      })
+      .then(() => alert(amount + " Robux seçildi, Discord'a bildirim gönderildi."))
+      .catch(() => alert("Bildirim gönderilemedi."));
+    }
+  </script>
+</body>
+</html>
